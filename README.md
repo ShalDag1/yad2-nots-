@@ -39,7 +39,13 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Create a local `.env` file or export environment variables:
+Create a local `.env` file from the example:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Then edit `.env` with your Telegram values:
 
 ```env
 TG_API=your_telegram_bot_token
