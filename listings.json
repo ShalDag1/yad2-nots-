@@ -1,1 +1,286 @@
-[]
+[
+  {
+    "zone": "Motzkin",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/3rggqaul",
+    "img": "https://assets.yad2.co.il/y2_frontend/global/images/small_image_placeholder.svg",
+    "address": "לאה גולדברג 4",
+    "price": "₪ 4,600",
+    "details": "3 חדרים • קומה 1 • 84 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/3tds8a0j",
+    "img": "https://img.yad2.co.il/Pic/202603/17/2_6/o/y2_1pa_010207_20260317114507.jpeg",
+    "address": "מרכז העיר, סביניה, הוותיקה",
+    "price": "₪ 6,500",
+    "details": "6 חדרים • קומה קרקע • 235 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/76swnwph",
+    "img": "https://img.yad2.co.il/Pic/202512/29/2_6/o/y2_1pa_010328_20251229153915.jpeg",
+    "address": "זינגר",
+    "price": "₪ 10,000",
+    "details": "6.5 חדרים • קומה קרקע • 370 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/0nd9lksh",
+    "img": "https://img.yad2.co.il/Pic/202604/30/2_6/o/y2_1pa_010935_20260430133757.jpeg",
+    "address": "דגניה",
+    "price": "₪ 10,500",
+    "details": "6 חדרים • קומה קרקע • 780 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/3p87n063",
+    "img": "https://img.yad2.co.il/Pic/202605/05/2_2/o/y2_1pa_010097_20260505133216.jpeg",
+    "address": "קרן היסוד 35",
+    "price": "₪ 9,000",
+    "details": "6.5 חדרים • קומה קרקע • 350 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/2nlmfal6",
+    "img": "https://img.yad2.co.il/Pic/202602/05/2_2/o/y2_1pa_010388_20260205062650.jpeg",
+    "address": "השומר 58",
+    "price": "₪ 10,700",
+    "details": "6 חדרים • קומה קרקע • 165 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/gcf36tf8",
+    "img": "https://assets.yad2.co.il/y2_frontend/global/images/small_image_placeholder.svg",
+    "address": "החשמונאים 41",
+    "price": "₪ 7,000",
+    "details": "6 חדרים • קומה 1 • 136 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/ndvurxh9",
+    "img": "https://img.yad2.co.il/Pic/202601/20/2_2/o/y2_1pa_010699_20260120112503.jpeg",
+    "address": "פרישמן 8",
+    "price": "₪ 9,300",
+    "details": "6.5 חדרים • קומה 1 • 235 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/es3zuq7c",
+    "img": "https://img.yad2.co.il/Pic/202604/03/2_2/o/y2_1pa_010575_20260403103520.jpeg",
+    "address": "שדרות קק\"ל 49",
+    "price": "₪ 9,000",
+    "details": "6 חדרים • קומה 2 • 295 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/3tds8a0j",
+    "img": "https://img.yad2.co.il/Pic/202603/17/2_6/o/y2_1pa_010207_20260317114507.jpeg",
+    "address": "מרכז העיר, סביניה, הוותיקה",
+    "price": "₪ 6,500",
+    "details": "6 חדרים • קומה קרקע • 235 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/7akbkl3b",
+    "img": "https://img.yad2.co.il/Pic/202512/26/2_6/o/y2_1pa_994842_20251226153656.jpeg",
+    "address": "זינגר",
+    "price": "₪ 10,000",
+    "details": "6.5 חדרים • קומה קרקע • 356 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/yn2gzjtl",
+    "img": "https://img.yad2.co.il/Pic/202602/12/2_6/o/y2_1pa_010622_20260212001510.jpeg",
+    "address": "הגליל",
+    "price": "₪ 6,200",
+    "details": "6 חדרים • קומה 1 • 110 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/80u7gj8j",
+    "img": "https://img.yad2.co.il/Pic/202602/09/2_6/o/y2_1pa_010764_20260209103705.jpeg",
+    "address": "הנוטר",
+    "price": "₪ 15,000",
+    "details": "6 חדרים • קומה 5 • 260 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/76swnwph",
+    "img": "https://img.yad2.co.il/Pic/202512/29/2_6/o/y2_1pa_010328_20251229153915.jpeg",
+    "address": "זינגר",
+    "price": "₪ 10,000",
+    "details": "6.5 חדרים • קומה קרקע • 370 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/jqe2i92r",
+    "img": "https://img.yad2.co.il/Pic/202512/17/2_6/o/y2_1pa_010943_20251217170517.jpeg",
+    "address": "שדרות וייצמן",
+    "price": "₪ 6,100",
+    "details": "6 חדרים • קומה קרקע • 150 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/0nd9lksh",
+    "img": "https://img.yad2.co.il/Pic/202604/30/2_6/o/y2_1pa_010935_20260430133757.jpeg",
+    "address": "דגניה",
+    "price": "₪ 10,500",
+    "details": "6 חדרים • קומה קרקע • 780 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/n4tg1rnp",
+    "img": "https://img.yad2.co.il/Pic/202412/24/2_6/o/y2_1_qoaMuo7_993162_20241224.jpg",
+    "address": "אילון",
+    "price": "₪ 9,500",
+    "details": "8 חדרים • קומה 1 • 190 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/qk6nyf6k",
+    "img": "https://img.yad2.co.il/Pic/202605/09/2_2/o/y2_1pa_010423_20260509175639.jpeg",
+    "address": "ערמונים 27",
+    "price": "₪ 8,000",
+    "details": "7 חדרים • קומה קרקע • 350 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/k8b7ag4x",
+    "img": "https://img.yad2.co.il/Pic/202605/10/2_2/o/y2_1pa_010133_20260510150713.jpeg",
+    "address": "לח\"י 46",
+    "price": "₪ 9,000",
+    "details": "7 חדרים • קומה קרקע • 280 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/gyx4dxl5",
+    "img": "https://assets.yad2.co.il/y2_frontend/global/images/small_image_placeholder.svg",
+    "address": "יצחק שדה 1",
+    "price": "₪ 6,000",
+    "details": "6 חדרים • קומה 1 • 170 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/2j06hkz5",
+    "img": "https://assets.yad2.co.il/y2_frontend/global/images/small_image_placeholder.svg",
+    "address": "יצחק שדה 1",
+    "price": "₪ 6,000",
+    "details": "6 חדרים • קומה קרקע • 170 מ״ר"
+  },
+  {
+    "zone": "vilot",
+    "url": "https://www.yad2.co.il/realestate/item/coastal-north/lfsq90tg",
+    "img": "https://img.yad2.co.il/Pic/202605/25/2_2/o/y2_1pa_010000_20260525004928.jpeg",
+    "address": "הרדוף 4",
+    "price": "₪ 12,500",
+    "details": "6 חדרים • קומה 17 • 209 מ״ר"
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/8627675299900",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010891_20260304135721.jpg?v=1772625462",
+    "address": "",
+    "price": "None",
+    "details": ""
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/8829585981500",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010832_20260212191339.jpg?v=1770916553",
+    "address": "",
+    "price": "None",
+    "details": ""
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/7987066961980",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010514_20260519151922.jpg?v=1779193184",
+    "address": "",
+    "price": "None",
+    "details": ""
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/8923865514044",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010399_20260518180403.jpg?v=1779117203",
+    "address": "",
+    "price": "None",
+    "details": ""
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/8838571950140",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010204_20260216120709.jpg?v=1778853034",
+    "address": "",
+    "price": "None",
+    "details": ""
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/8911060992060",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010432_20260505105557.jpg?v=1777968017",
+    "address": "",
+    "price": "None",
+    "details": ""
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/8903917862972",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010064_20260501205510.jpg?v=1777658251",
+    "address": "",
+    "price": "None",
+    "details": ""
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/8897371996220",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010517_20260428102053.jpg?v=1777361032",
+    "address": "",
+    "price": "None",
+    "details": ""
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/8887587045436",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010125_20260420120511.jpg?v=1776676339",
+    "address": "",
+    "price": "None",
+    "details": ""
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/8887009935420",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010382_20260418233803.jpg?v=1776544980",
+    "address": "",
+    "price": "None",
+    "details": ""
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/8802178760764",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010638_20260410202150.jpg?v=1775841756",
+    "address": "",
+    "price": "None",
+    "details": ""
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/8928422264892",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010703_20260526113652.jpg?v=1779785465",
+    "title": "מכונת קפה אוטומטית Miele",
+    "location": "אלפי מנשה",
+    "address": "אלפי מנשה",
+    "price": "₪5,500",
+    "details": "כמו חדש | בהזדמנות"
+  },
+  {
+    "zone": "coffee machines",
+    "url": "https://www.yad2.co.il/market/item/8614310707260",
+    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010587_20260510153759.jpg?v=1778416758",
+    "title": "מכונת קפה אינטגרלית בילדאין",
+    "location": "גאליה",
+    "address": "גאליה",
+    "price": "₪3,000 ₪3,500",
+    "details": "גמיש במחיר"
+  }
+]

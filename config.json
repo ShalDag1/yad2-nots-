@@ -1,28 +1,8 @@
 {
   "areas":[
     {
-      "zone": "Remez",
-      "url": "https://www.yad2.co.il/realestate/rent?topArea=25&area=5&city=4000&neighborhood=637&minPrice=2000&maxPrice=3000&minRooms=2&maxRooms=2.5&property=1%2C3%2C6%2C7%2C25%2C49%2C51%2C11%2C31%2C43%2C4&zoom=14"
-    },
-    {
-      "zone": "Ziv",
-      "url": "https://www.yad2.co.il/realestate/rent?minPrice=2000&maxPrice=3000&minRooms=2&maxRooms=2.5&property=1%2C3%2C6%2C7%2C25%2C49%2C51%2C11%2C31%2C43%2C4&topArea=25&area=5&city=4000&neighborhood=643"
-    },
-    {
-      "zone": "Ramat Alon",
-      "url": "https://www.yad2.co.il/realestate/rent?minPrice=2000&maxPrice=3000&minRooms=2&maxRooms=2.5&property=1%2C3%2C6%2C7%2C25%2C49%2C51%2C11%2C31%2C43%2C4&topArea=25&area=5&city=4000&neighborhood=635"
-    },
-    {
-      "zone": "Amos",
-      "url": "https://www.yad2.co.il/realestate/rent?topArea=25&area=5&city=2500&neighborhood=1444&minPrice=2000&maxPrice=3000&property=1%2C3%2C6%2C7%2C25%2C49%2C51%2C11%2C31%2C43%2C4&zoom=15"
-    },
-    {
-      "zone": "Ben Dor",
-      "url": "https://www.yad2.co.il/realestate/rent?minPrice=2000&maxPrice=3000&property=1%2C3%2C6%2C7%2C25%2C49%2C51%2C11%2C31%2C43%2C4&topArea=25&area=5&city=2500&neighborhood=1524"
-    },
-    {
-      "zone": "Ramot Itzhak",
-      "url": "https://www.yad2.co.il/realestate/rent?minPrice=2000&maxPrice=3000&property=1%2C3%2C6%2C7%2C25%2C49%2C51%2C11%2C31%2C43%2C4&topArea=25&area=5&city=2500&neighborhood=874&zoom=14"
+      "zone": "coffee machines",
+      "url": "https://www.yad2.co.il/market/collections/electronics_electrical-products-for-the-home_coffee-makers-espresso-machines?minPrice=2700&maxPrice=7500&attr_63=12863&attr_24=10247"
     }
   ]
 }
