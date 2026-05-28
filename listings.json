@@ -262,25 +262,5 @@
     "address": "",
     "price": "None",
     "details": ""
-  },
-  {
-    "zone": "coffee machines",
-    "url": "https://www.yad2.co.il/market/item/8928422264892",
-    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010703_20260526113652.jpg?v=1779785465",
-    "title": "מכונת קפה אוטומטית Miele",
-    "location": "אלפי מנשה",
-    "address": "אלפי מנשה",
-    "price": "₪5,500",
-    "details": "כמו חדש | בהזדמנות"
-  },
-  {
-    "zone": "coffee machines",
-    "url": "https://www.yad2.co.il/market/item/8614310707260",
-    "img": "https://cdn.shopify.com/s/files/1/0590/7860/6908/files/y2_0pa_010587_20260510153759.jpg?v=1778416758",
-    "title": "מכונת קפה אינטגרלית בילדאין",
-    "location": "גאליה",
-    "address": "גאליה",
-    "price": "₪3,000 ₪3,500",
-    "details": "גמיש במחיר"
   }
 ]
