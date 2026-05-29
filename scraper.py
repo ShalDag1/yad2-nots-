@@ -4,6 +4,7 @@ import requests
 import random
 import re
 
+from datetime import datetime
 from json.decoder import JSONDecodeError
 from dotenv import load_dotenv
 from time import sleep
@@ -16,6 +17,8 @@ CHAT_ID = os.getenv('CHAT_ID')
 
 if not TG_API or not CHAT_ID:
     raise RuntimeError("TG_API/CHAT_ID missing in environment")
+
+print(f"[{datetime.now().astimezone().strftime('%Y-%m-%d %H:%M:%S %Z')}] Scraper started", flush=True)
 
 LISTINGS_FILE = 'listings.json'
 CONFIG_FILE = 'config.json'
