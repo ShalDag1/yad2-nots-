@@ -3,6 +3,7 @@ import os
 import requests
 import random
 import re
+import sys
 
 from datetime import datetime
 from json.decoder import JSONDecodeError
@@ -12,6 +13,10 @@ from urllib.parse import urljoin, urlsplit, urlunsplit
 from bs4 import BeautifulSoup
 
 load_dotenv()
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 TG_API = os.getenv('TG_API')
 CHAT_ID = os.getenv('CHAT_ID')
 
@@ -23,6 +28,15 @@ print(f"[{datetime.now().astimezone().strftime('%Y-%m-%d %H:%M:%S %Z')}] Scraper
 LISTINGS_FILE = 'listings.json'
 CONFIG_FILE = 'config.json'
 PRICE_RE = re.compile(r"(?:₪|ש\"ח)\s*[\d,]+|[\d,]+\s*(?:₪|ש\"ח)")
+VEHICLE_YEAR_RE = re.compile(r"\b20\d{2}\b")
+ITEM_LINK_SELECTOR = (
+    'a[href*="/realestate/item/"], '
+    'a[href*="/market/item/"], '
+    'a[href*="/vehicles/item/"], '
+    'a[href^="/item/"], '
+    'a[href^="item/"]'
+)
+VEHICLE_BADGES = {"גם בטרייד אין", "ירד ב"}
 
 if os.path.isfile(LISTINGS_FILE):
     try:
@@ -91,6 +105,21 @@ def normalize_listing_url(href):
     return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
 
 
+def vehicle_detail_url(listing_url):
+    return listing_url.replace("https://www.yad2.co.il/item/", "https://www.yad2.co.il/vehicles/item/")
+
+
+def is_listing_link(tag):
+    href = tag.get("href", "") if tag else ""
+    return (
+        "/realestate/item/" in href
+        or "/market/item/" in href
+        or "/vehicles/item/" in href
+        or href.startswith("/item/")
+        or href.startswith("item/")
+    )
+
+
 def get_text_or_empty(element):
     if not element:
         return ""
@@ -143,6 +172,60 @@ def fallback_details_from_card(card, price, title, location):
     return " | ".join(parts[:3])
 
 
+def extract_vehicle_text(parts, price):
+    non_price_parts = [part for part in parts if not PRICE_RE.search(part)]
+    useful_parts = [part for part in non_price_parts if part not in VEHICLE_BADGES]
+
+    has_seller = not (len(useful_parts) > 2 and VEHICLE_YEAR_RE.search(useful_parts[2]))
+    offset = 1 if has_seller else 0
+
+    seller = useful_parts[0] if has_seller and useful_parts else ""
+    model = useful_parts[offset] if len(useful_parts) > offset else ""
+    trim = useful_parts[offset + 1] if len(useful_parts) > offset + 1 else ""
+    year_hand = useful_parts[offset + 2] if len(useful_parts) > offset + 2 else ""
+
+    title = clean_text(f"{model} {trim}") or seller
+    details = " | ".join(part for part in [year_hand, seller] if part)
+    if not details:
+        details = fallback_details_from_card_from_parts(parts, price, title, seller)
+
+    return title, seller, details
+
+
+def fallback_details_from_card_from_parts(parts, price, title, location):
+    details = []
+    for part in parts:
+        if (
+            part in {price, title, location}
+            or part in VEHICLE_BADGES
+            or PRICE_RE.search(part)
+        ):
+            continue
+        if part not in details:
+            details.append(part)
+    return " | ".join(details[:3])
+
+
+def extract_vehicle_km(listing_url, headers):
+    detail_headers = headers.copy()
+    detail_headers["Referer"] = "https://www.yad2.co.il/vehicles/cars"
+
+    response = requests.get(vehicle_detail_url(listing_url), headers=detail_headers, timeout=20)
+    response.encoding = "utf-8"
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    parts = card_text_parts(soup)
+    for index, part in enumerate(parts):
+        if "קילומטראז" in part and index + 1 < len(parts):
+            value = parts[index + 1]
+            if re.fullmatch(r"[\d,]+", value):
+                return value
+
+    title = soup.title.get_text(" ", strip=True) if soup.title else ""
+    match = re.search(r"([\d,]+)\s*ק״מ", title)
+    return match.group(1) if match else ""
+
+
 def find_listing_cards(soup):
     cards = []
     selectors = [
@@ -155,8 +238,8 @@ def find_listing_cards(soup):
         cards.extend(soup.select(selector))
 
     seen = {id(card) for card in cards}
-    for link in soup.select('a[href*="/realestate/item/"], a[href*="/market/item/"]'):
-        card = link.find_parent("li") or link.find_parent("article") or link.parent
+    for link in soup.select(ITEM_LINK_SELECTOR):
+        card = link if is_listing_link(link) and link.get("href", "").lstrip("/").startswith("item/") else link.find_parent("li") or link.find_parent("article") or link.parent
         if card and id(card) not in seen:
             cards.append(card)
             seen.add(id(card))
@@ -165,10 +248,9 @@ def find_listing_cards(soup):
 
 
 def extract_listing(item, zone):
-    a = (
+    a = item if item.name == "a" and is_listing_link(item) else (
         item.select_one('a.item-layout_itemLink__CZZ7w')
-        or item.select_one('a[href*="/realestate/item/"]')
-        or item.select_one('a[href*="/market/item/"]')
+        or item.select_one(ITEM_LINK_SELECTOR)
     )
     if not a:
         return None
@@ -200,18 +282,23 @@ def extract_listing(item, zone):
     parts = card_text_parts(item)
     non_price_parts = [part for part in parts if not PRICE_RE.search(part)]
 
-    if not title and img:
+    is_vehicle_listing = a.get("href", "").lstrip("/").startswith("item/")
+
+    if is_vehicle_listing:
+        title, location, details = extract_vehicle_text(parts, price)
+    elif not title and img:
         title = clean_text(img.get("alt", ""))
 
-    if not title and not location and len(non_price_parts) >= 2:
+    if not is_vehicle_listing and not title and not location and len(non_price_parts) >= 2:
         location = non_price_parts[0]
         title = non_price_parts[1]
-    elif not title:
+    elif not is_vehicle_listing and not title:
         title = next((part for part in non_price_parts if part != location), "")
-    elif not location:
+    elif not is_vehicle_listing and not location:
         location = next((part for part in non_price_parts if part != title), "")
 
-    details = clean_text(info_lines[1].get_text(" ", strip=True) if len(info_lines) > 1 else "")
+    if not is_vehicle_listing:
+        details = clean_text(info_lines[1].get_text(" ", strip=True) if len(info_lines) > 1 else "")
 
     if not details:
         details = fallback_details_from_card(item, price, title, location)
@@ -236,7 +323,12 @@ for area in areas:
 
         headers = DEFAULT_HEADERS.copy()
         headers["User-Agent"] = random.choice(UA_POOL)
-        headers["Referer"] = "https://www.yad2.co.il/market" if "/market/" in search_url else "https://www.yad2.co.il/realestate/rent"
+        if "/market/" in search_url:
+            headers["Referer"] = "https://www.yad2.co.il/market"
+        elif "/vehicles/" in search_url:
+            headers["Referer"] = "https://www.yad2.co.il/vehicles/cars"
+        else:
+            headers["Referer"] = "https://www.yad2.co.il/realestate/rent"
 
         response = requests.get(search_url, headers=headers)
         response.encoding = 'utf-8'
@@ -253,6 +345,12 @@ for area in areas:
                 listing = extract_listing(item, zone)
                 if not listing or listing["url"] in scraped_urls:
                     continue
+                if "/vehicles/" in search_url:
+                    try:
+                        listing["km"] = extract_vehicle_km(listing["url"], headers)
+                    except Exception as e:
+                        listing["km"] = ""
+                        print(f"Error extracting vehicle km for {listing['url']}: {e}", flush=True)
 
                 new_listings.append(listing)
                 scraped_data.append(listing)
@@ -279,14 +377,15 @@ if new_listings:
 <b>Title:</b> {title}
 <b>Location:</b> {location}
 <b>Price:</b> {listing['price']}
+<b>KM:</b> {listing.get('km', '')}
 <b>Details:</b> {listing['details']}
 <a href="{listing['url']}">View Listing</a>
 """
         img = listing['img']
 
         try:
-            if img and img.endswith(".svg"):
-                raise ValueError("Placeholder image detected")
+            if not img or img.endswith(".svg"):
+                raise ValueError("No usable image")
 
             photo_data = requests.get(img, timeout=5).content
 
@@ -306,7 +405,7 @@ if new_listings:
                 raise Exception(f"Telegram photo post failed: {response.status_code}")
 
         except Exception as e:  # fall back text only
-            print(f"Falling back to text for: {listing['address']} ({e})", flush=True)
+            print(f"Falling back to text for: {listing['url']} ({e})", flush=True)
             requests.post(
                 f"https://api.telegram.org/bot{TG_API}/sendMessage",
                 data={
